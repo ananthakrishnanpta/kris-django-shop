@@ -5,13 +5,18 @@
 }
 
 body {
+
     main {
-        .carousel {
-            height: 100px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+
+        .products-ad { 
+            .carousel {
+                height: 300px;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+        }       
     }
 }
