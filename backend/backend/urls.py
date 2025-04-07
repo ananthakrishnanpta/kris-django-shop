@@ -24,7 +24,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('shop.urls'))
+    path('', include('shop.urls')),
+    path('accounts/', include('users.urls')),
+    path('api/v1/accounts/', include('users.api_urls')),
 ]
 # the following line allows us to use the given media path during development
 if settings.DEBUG == True:
