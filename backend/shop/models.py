@@ -1,5 +1,6 @@
 from django.db.models import *
 from django.utils.text import slugify
+from users.models import SellerProfile
 
 def product_image_upload_path(instance, filename):
     product_name = slugify(instance.product.name)  # Convert product name to a slug
@@ -20,3 +21,12 @@ class ProductImage(Model):
 
     def __str__(self):
         return f"Image for {self.product.name}"
+
+class ProductListing(Model):
+    product = ForeignKey(Product, on_delete=CASCADE)
+    seller = ForeignKey(SellerProfile, on_delete=CASCADE)
+    selling_price = PositiveBigIntegerField()
+    stock = PositiveBigIntegerField(default=1)
+
+    def __str__(self):
+        return f"{self.product.name} sold by {self.seller.user.username} from {self.seller.shop_name}"

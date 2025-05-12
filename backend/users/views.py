@@ -13,7 +13,7 @@ class UserRegisterView(CreateView):
 
 class CustomLoginView(LoginView):
     template_name = 'login.html'
-    
+    # implement custom redirection according to user type...
 
 class CustomLogoutView(LogoutView):
     next_page = reverse_lazy('login')
